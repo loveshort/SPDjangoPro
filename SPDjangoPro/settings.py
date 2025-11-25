@@ -38,6 +38,8 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'app',
+    'shopping',
+    "blog",
 ]
 
 MIDDLEWARE = [
@@ -77,8 +79,19 @@ WSGI_APPLICATION = 'SPDjangoPro.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': 'django.db.backends.mysql',
+        'NAME': 'database_name' ,
+        #mysql数据库的用户名
+        'USER': 'root',
+        #mysql数据库的密码
+        'PASSWORD': 'Qq2627049171@',
+        #mysql数据库的主机地址
+        'HOST': '127.0.0.1',
+        #mysql数据库的端口号
+        'PORT': 3306,
+        'OPTIONS': {
+            'charset': 'utf8mb4'
+        }
     }
 }
 
