@@ -47,3 +47,19 @@ def delete_view(request):
     books = AppModel.objects.get(id = 1)
     books.delete()
     return  HttpResponse("删除成功")
+#书名的详情页
+def book_detail(request,id):
+    bookId = AppModel.objects.get(id = id)
+    #查询对应详情页的书，使用id查询正常的时间
+    book = AppModel.objects.filter(id = bookId)
+    return HttpResponse(f"详情信息${book}")
+#书名的更新
+def update_book(request,id):
+    book = AppModel.objects.get(id = id)
+    book.price = book.price + 10
+    book.name = book.name + " " + book.author
+    book.author = book.author + " " + book.price
+    book.save()
+    return HttpResponse("更新成功")
+
+
