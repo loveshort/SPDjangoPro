@@ -24,18 +24,4 @@ def index(request):
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path("s", index),
-    path("shopping",include('shopping.urls'),name="shopping"),
-
-    path("book",views.book_detail_query_string,name="book_detail_quer  y_string"),
-
-    path('book/<int:book_id>',views.book_detail_path,name="book_detail_path"),
-
-    path('book/<str:book_id>/',views.book_detail_str,name='book_detail_str'),
-
-    path("book/<slug:book_id>/",views.book_detail_slug,name="book_detail_slug"),
-
-   # path("blog/",include('blog.urls'),name='blog'),
-
-    path('app/',include('app.urls'),name='app'),
 ]

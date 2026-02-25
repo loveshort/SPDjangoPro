@@ -37,9 +37,6 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'app',
-    'shopping',
-    "blog",
 ]
 
 MIDDLEWARE = [
@@ -80,7 +77,7 @@ WSGI_APPLICATION = 'SPDjangoPro.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'database_name' ,
+        'NAME': 'blog_teacher' ,
         #mysql数据库的用户名
         'USER': 'root',
         #mysql数据库的密码

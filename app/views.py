@@ -2,7 +2,7 @@ from django.http import HttpResponse
 from django.shortcuts import render
 from django.db import connection
 # Create your views here.
-from models import AppModel
+from .models import AppModel
 def index(request):
     #获取游标对象
     cursor = connection.cursor()
