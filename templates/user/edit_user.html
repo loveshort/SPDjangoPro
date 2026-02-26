@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>编辑用户</title>
+</head>
+<body>
+    <h1>编辑用户</h1>
+    <form action="{% url 'user:edit_user' user.id %}" method="post">
+        {% csrf_token %}
+        <div>
+            <label for="username">用户名:</label>
+            <input type="text" id="username" name="username" value="{{ user.username }}" required>
+        </div>
+        <div>
+            <label for="email">邮箱:</label>
+            <input type="email" id="email" name="email" value="{{ user.email }}" required>
+        </div>
+        <div>
+            <label for="password">密码:</label>
+            <input type="password" id="password" name="password" value="{{ user.password }}" required>
+        </div>
+        <div>
+            <label for="gender">性别:</label>
+            <input type="text" id="gender" name="gender" value="{{ user.gender }}" required>
+        </div>
+        <div>
+            <label for="age">年龄:</label>
+            <input type="number" id="age" name="age" value="{{ user.age }}" required>
+        </div>
+        <div>
+            <label for="phone">手机号:</label>
+            <input type="text" id="phone" name="phone" value="{{ user.phone }}" required>
+        </div>
+        <div>
+            <label for="address">地址:</label>
+            <input type="text" id="address" name="address" value="{{ user.address }}" required>
+        </div>
+        <div>
+            <label for="avatar">头像:</label>
+            <input type="file" id="avatar" name="avatar" value="{{ user.avatar }}" required>
+        </div>
+        <button type="submit">编辑用户</button>
+    </form>
+</body>
+
+</html>

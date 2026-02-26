@@ -16,13 +16,14 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
-from django.shortcuts import HttpResponse
-from shopping import views
+from django.http import HttpResponse
 
 def index(request):
     return HttpResponse("欢迎来写第一节python django")
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('login/',include('login.urls'),name='login'),
+    path('login/', include('login.urls')),
+    path('user/', include('user.urls')),
+    path('', index, name='index'),
 ]
