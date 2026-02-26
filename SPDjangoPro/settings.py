@@ -42,9 +42,15 @@ INSTALLED_APPS = [
     'blog',
     'login',
     'user',
+    'category',
+    #第三方应用
+    'rest_framework', #DRF核心
+    'corsheaders', #跨域请求
+    'api', #API应用
 ]
 
 MIDDLEWARE = [
+    'corsheaders.middleware.CorsMiddleware', #跨域请求中间件
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
@@ -55,6 +61,49 @@ MIDDLEWARE = [
 ]
 
 ROOT_URLCONF = 'SPDjangoPro.urls'
+
+# 允许所有前端域名（开发环境），生产环境需指定具体域名
+CORS_ALLOW_ALL_ORIGINS = True
+
+#DRF 全局配置（可选，也可在视图中单独配置）
+REST_FRAMEWORK = {
+    #分页配置
+    'DEFAULT_PAGINATION_CLASS': 'rest_framework.pagination.PageNumberPagination',
+    'PAGE_SIZE': 10,
+    #渲染器（默认返回 JSON）
+    'DEFAULT_RENDERER_CLASSES': [
+        'rest_framework.renderers.JSONRenderer',
+    ],
+    #认证配置
+    'DEFAULT_AUTHENTICATION_CLASSES': [
+        'rest_framework.authentication.TokenAuthentication',
+    ],
+    #权限配置
+    'DEFAULT_PERMISSION_CLASSES': [
+        'rest_framework.permissions.IsAuthenticated',
+    ],
+    #异常处理
+    'EXCEPTION_HANDLER': 'rest_framework.views.exception_handler',
+    #日志配置
+    'DEFAULT_LOGGING': {
+        'version': 1,
+        'disable_existing_loggers': False,
+        'handlers': {
+            'console': {
+                'level': 'DEBUG',
+                'class': 'logging.StreamHandler',
+            },
+        },
+        'loggers': {
+            'rest_framework': {
+                'handlers': ['console'],
+                'level': 'DEBUG',
+                'propagate': False,
+            },
+        },
+    }
+}
+
 
 TEMPLATES = [
     {
