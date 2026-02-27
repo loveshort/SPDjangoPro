@@ -46,7 +46,7 @@ INSTALLED_APPS = [
     #第三方应用
     'rest_framework', #DRF核心
     'corsheaders', #跨域请求
-    'api', #API应用
+    # 'api', #API应用
 ]
 
 MIDDLEWARE = [
