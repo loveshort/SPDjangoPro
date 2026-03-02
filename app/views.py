@@ -3,6 +3,30 @@ from django.shortcuts import render
 from django.db import connection
 # Create your views here.
 from .models import AppModel
+
+from rest_framework.views import APIView
+from rest_framework.response import Response
+from rest_framework import status
+from .serializers import AppSerializer
+from rest_framework.decorators import api_view
+from rest_framework.authentication import TokenAuthentication
+from rest_framework.permissions import IsAuthenticated
+from rest_framework.pagination import PageNumberPagination
+
+
+@api_view(['GET', 'POST'])
+def book_list(request):
+    if request.method == 'GET':
+        books = AppModel.objects.all()
+        serializer = AppSerializer(instance=books, many=True)
+        return Response(serializer.data)
+    elif request.method == 'POST':
+        serializer = AppSerializer(data=request.data)
+        if serializer.is_valid():
+            serializer.save()
+            return Response(serializer.data, status=status.HTTP_201_CREATED)
+        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+
 def index(request):
     #获取游标对象
     cursor = connection.cursor()

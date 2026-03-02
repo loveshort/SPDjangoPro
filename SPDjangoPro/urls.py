@@ -30,4 +30,5 @@ urlpatterns = [
     path('blog/', include('blog.urls')),
     path('category/', include('category.urls')),
     path('', index, name='index'),
+    path('api-auth/',include('rest_framework.urls')),
 ]
