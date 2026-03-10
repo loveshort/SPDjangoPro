@@ -11,8 +11,8 @@ def movie_list(request):
 def movie_detail(request,movie_id):
     return HttpResponse(f"电影详情页的{movie_id}")
 
-class 
-
+def blog_list(request):
+    return HttpResponse("博客列表")
 
 class MovieList(APIView):
     def get(self, request):

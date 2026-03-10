@@ -31,4 +31,10 @@ urlpatterns = [
     path('category/', include('category.urls')),
     path('', index, name='index'),
     path('api-auth/',include('rest_framework.urls')),
+    # 购物商城-登录
+    path('shopping_login/',include('shopping_login.urls')),
+    # 购物商城-我的
+    path('shopping_mine/',include('shopping_mine.urls')),
+    # 购物商城-广场
+    path('shopping_square/',include('shopping_square.urls')),
 ]
