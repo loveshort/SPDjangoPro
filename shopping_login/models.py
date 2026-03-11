@@ -30,3 +30,5 @@ class ShoppingLoginModel(models.Model):
 
     def __str__(self):
         return self.username
+    class Meta:
+        app_label = "shopping_login"
