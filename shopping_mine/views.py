@@ -1,7 +1,6 @@
 from django.shortcuts import render
 
+from rest_framework.views import APIView
+
 # Create your views here.
 class ShoppingMineView(APIView):
-    # 购物商城-我的视图
-    def get(self, request):
-        return Response({"message": "Hello, World!"})   
